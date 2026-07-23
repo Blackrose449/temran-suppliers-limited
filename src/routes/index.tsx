@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Certified PPE and workplace safety gear delivered across Kenya. Helmets, gloves, safety boots, respirators, coveralls and hi-vis workwear.",
+          "Certified PPE and workplace safety gear delivered across Kenya. Helmets, gloves, safety boots, respirators, coveralls and hi-vis workwear for construction, industrial and healthcare teams.",
       },
     ],
     scripts: [
