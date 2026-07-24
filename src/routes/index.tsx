@@ -43,21 +43,38 @@ function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-charcoal text-charcoal-foreground">
+        <div className="absolute inset-0">
+          <img
+            src={heroWorker}
+            alt="Construction worker in full PPE on a Kenyan job site"
+            className="h-full w-full object-cover"
+            width={1600}
+            height={1200}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(17,19,24,0.92) 0%, rgba(17,19,24,0.75) 45%, rgba(17,19,24,0.25) 100%)",
+            }}
+            aria-hidden
+          />
+        </div>
         <div
           className="pointer-events-none absolute -right-24 top-0 h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
           style={{ background: "radial-gradient(closest-side, #E63027, transparent)" }}
           aria-hidden
         />
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
-          <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs uppercase tracking-widest text-white/80">
+        <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-32">
+          <div className="animate-fade-up max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs uppercase tracking-widest text-white/80 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-primary" /> Your trusted PPE supply-chain partner
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight md:text-5xl">
+            <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
               Protective Gear.
               <span className="text-primary"> Practical Standards.</span>
             </h1>
-            <p className="mt-4 max-w-lg text-white/75">
+            <p className="mt-4 max-w-lg text-white/80">
               Temran Suppliers Limited delivers certified PPE and workplace safety gear across Kenya — helmets,
               gloves, boots, respirators, coveralls and hi-vis workwear for construction, manufacturing, healthcare
               and industrial teams.
@@ -73,12 +90,12 @@ function HomePage() {
                 href={`https://wa.me/${CONTACT.waNumber}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center rounded-md border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+                className="inline-flex items-center rounded-md border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/10"
               >
                 Talk to us on WhatsApp
               </a>
             </div>
-            <dl className="mt-10 grid grid-cols-3 gap-6 text-sm">
+            <dl className="mt-10 grid max-w-md grid-cols-3 gap-6 text-sm">
               <div>
                 <dt className="text-white/60">Quality</dt>
                 <dd className="mt-1 font-semibold">Certified PPE</dd>
@@ -92,15 +109,6 @@ function HomePage() {
                 <dd className="mt-1 font-semibold">Safer teams</dd>
               </div>
             </dl>
-          </div>
-          <div className="animate-fade-up flex items-center justify-center">
-            <img
-              src={logoAsset.url}
-              alt="Temran Suppliers Limited logo"
-              className="h-64 w-64 object-contain md:h-80 md:w-80"
-              width={320}
-              height={320}
-            />
           </div>
         </div>
       </section>
