@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories, whyChooseUs, CONTACT } from "@/data/site";
 import { FeaturedCarousel } from "@/components/featured-carousel";
-import logoAsset from "../assets/temran-logo.png.asset.json";
+import heroWorker from "../assets/hero-worker.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
