@@ -18,7 +18,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img
-            src={logoAsset.url}
+            src="/temran-logo.png"
             alt="Temran Suppliers Limited"
             className="h-12 w-12 shrink-0 object-contain"
             width={48}
