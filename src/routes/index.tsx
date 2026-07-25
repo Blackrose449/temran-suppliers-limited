@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { categories, whyChooseUs, CONTACT } from "@/data/site";
+import { categories, whyChooseUs, CONTACT, clients } from "@/data/site";
 import { FeaturedCarousel } from "@/components/featured-carousel";
 import heroWorker from "../assets/hero-worker.jpg";
 
@@ -130,6 +130,30 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="border-y border-border bg-background">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">Trusted by</p>
+              <h2 className="mt-2 text-2xl font-bold text-charcoal md:text-3xl">Our clients</h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              A few of the teams that rely on Temran for their day-to-day PPE and safety supply.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {clients.map((c) => (
+              <div key={c.name} className="rounded-xl border border-border bg-card p-6">
+                <div className="mb-3 h-1 w-8 rounded-full bg-primary" />
+                <div className="text-base font-semibold text-charcoal">{c.name}</div>
+                <p className="mt-2 text-sm text-muted-foreground">{c.blurb}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       <section className="bg-secondary/50">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-2xl font-bold text-charcoal md:text-3xl">Categories we supply</h2>
@@ -183,7 +207,7 @@ function HomePage() {
               <a
                 href={`https://wa.me/${CONTACT.waNumber}`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
               >
                 WhatsApp us

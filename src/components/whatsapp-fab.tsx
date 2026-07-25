@@ -5,7 +5,7 @@ export function WhatsAppFab() {
     <a
       href={`https://wa.me/${CONTACT.waNumber}?text=${encodeURIComponent("Hello Temran, I'd like to enquire about your PPE.")}`}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Chat with Temran on WhatsApp"
       className="fixed bottom-5 right-5 z-50 flex h-14 items-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 md:h-14"
     >

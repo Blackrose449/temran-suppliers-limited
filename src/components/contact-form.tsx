@@ -11,6 +11,7 @@ const schema = z.object({
   phone: z.string().trim().max(40).optional().default(""),
   company: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().min(1, "Tell us how we can help").max(2000),
+  website: z.string().max(0).optional().default(""),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -23,7 +24,7 @@ type Status =
 
 export function ContactForm() {
   const send = useServerFn(sendContactEmail);
-  const [values, setValues] = useState<FormData>({ name: "", email: "", phone: "", company: "", message: "" });
+  const [values, setValues] = useState<FormData>({ name: "", email: "", phone: "", company: "", message: "", website: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -53,7 +54,7 @@ export function ContactForm() {
       const res = await send({ data });
       if (res.ok) {
         setStatus({ kind: "success" });
-        setValues({ name: "", email: "", phone: "", company: "", message: "" });
+        setValues({ name: "", email: "", phone: "", company: "", message: "", website: "" });
       } else {
         setStatus({
           kind: "error",
@@ -87,6 +88,19 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4" noValidate>
+      {/* Honeypot: hidden from users, catches bots */}
+      <div aria-hidden style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Website
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={values.website}
+            onChange={(e) => update("website", e.target.value)}
+          />
+        </label>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" error={errors.name}>
           <input
