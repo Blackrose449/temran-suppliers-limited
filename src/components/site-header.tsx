@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "../assets/temran-logo.png.asset.json";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
