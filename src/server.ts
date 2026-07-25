@@ -49,13 +49,41 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(), {
-        status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      });
+      return withSecurityHeaders(
+        new Response(renderErrorPage(), {
+          status: 500,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+      );
     }
   },
 };
+
+function withSecurityHeaders(res: Response): Response {
+  const h = new Headers(res.headers);
+  h.set("X-Content-Type-Options", "nosniff");
+  h.set("X-Frame-Options", "SAMEORIGIN");
+  h.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  h.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), interest-cohort=()");
+  h.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  h.set(
+    "Content-Security-Policy",
+    [
+      "default-src 'self'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' https://fonts.gstatic.com data:",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "script-src 'self' 'unsafe-inline'",
+      "connect-src 'self' https:",
+      "frame-src https://www.google.com",
+      "frame-ancestors 'self'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+    ].join("; "),
+  );
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}

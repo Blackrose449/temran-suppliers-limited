@@ -17,8 +17,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={logoAsset.url} alt="Temran Suppliers Limited" className="h-10 w-10 object-contain" width={40} height={40} />
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <img
+            src={logoAsset.url}
+            alt="Temran Suppliers Limited"
+            className="h-12 w-12 shrink-0 object-contain"
+            width={48}
+            height={48}
+            loading="eager"
+            decoding="async"
+          />
           <div className="leading-tight">
             <div className="text-sm font-semibold text-charcoal">Temran Suppliers</div>
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Limited</div>

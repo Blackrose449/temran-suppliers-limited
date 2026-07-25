@@ -41,7 +41,7 @@ function ContactPage() {
           <a
             href={`https://wa.me/${CONTACT.waNumber}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="block rounded-2xl border border-primary/20 bg-primary/5 p-5"
           >
             <div className="text-sm font-semibold text-charcoal">Prefer WhatsApp?</div>
@@ -64,7 +64,8 @@ function ContactPage() {
           title="Temran Suppliers — Nairobi location"
           src="https://www.google.com/maps?q=Nairobi%2C+Kenya&output=embed"
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer"
+          sandbox="allow-scripts allow-same-origin allow-popups"
           className="h-72 w-full"
         />
       </div>
