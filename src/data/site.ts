@@ -110,4 +110,7 @@ export const clients = [
   { name: "Tradco Services Limited", blurb: "Ongoing PPE supply for site and industrial teams." },
   { name: "Corevantage Limited", blurb: "Trusted procurement partner for safety gear." },
   { name: "Raflan Enterprises", blurb: "Long-standing collaboration on workwear and PPE." },
+  { name: "Teita Services Limited", blurb: "Reliable PPE partner for facilities and operational teams." },
+  { name: "Jad Engineering", blurb: "Safety-equipment supply for engineering and infrastructure projects." },
+  { name: "Insight Management Limited", blurb: "Corporate PPE sourcing and compliance support." },
 ];
