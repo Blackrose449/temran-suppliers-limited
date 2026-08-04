@@ -18,6 +18,10 @@ export const Route = createFileRoute("/")({
         content:
           "Certified PPE and workplace safety gear delivered across Kenya. Helmets, gloves, safety boots, respirators, coveralls and hi-vis workwear for construction, industrial and healthcare teams.",
       },
+      {
+        name: "google-site-verification",
+        content: "TfT1cpoTGQ62sy9KXbd8lMDckJIUlcNXlDtWHHYqcrA",
+      },
     ],
     scripts: [
       {
